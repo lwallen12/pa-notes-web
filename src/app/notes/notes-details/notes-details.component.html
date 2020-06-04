@@ -2,29 +2,32 @@
   <a routerLink="/notes">Back to home</a>
 </div>
 <hr>
-<button class="warn">Edit</button><button class="danger" (click)="onDelete()">Delete</button>
-
+<div *ngIf="!createMode">
+  <button (click)="onEdit()" class="warn">Edit</button><button class="danger" (click)="onDelete()">Delete</button>
+</div>
 <div class="my-container">
   <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
-    <h2>Create Note</h2>
+    <h2><span *ngIf="createMode">Create </span>Note<span *ngIf="!createMode"> - {{note?.id}}</span></h2>
     <hr>
     <label for="category">Category</label>
-    <input type="text" name="category" formControlName="category" placeholder="Type category">
+    <input [style.cursor]="cursorStyle" type="text" name="category" formControlName="category" placeholder="Type category">
     <hr>
     <label for="disease">Disease</label>
-    <input type="text" name="disease" formControlName="disease" placeholder="Type disease">
+    <input [style.cursor]="cursorStyle" type="text" name="disease" formControlName="disease" placeholder="Type disease">
     <hr>
     <label for="generalInfo">General Info</label>
-    <textarea formControlName="generalInfo" placeholder="Type general info" name="generalInfo"></textarea>
+    <textarea [style.cursor]="cursorStyle" formControlName="generalInfo" placeholder="Type general info" name="generalInfo"></textarea>
     <hr>
     <label for="clinicalFeatures">Clinical Features</label>
-    <textarea formControlName="clinicalFeatures" name="clinicalFeatures" placeholder="Type clinical features"></textarea>
+    <textarea [style.cursor]="cursorStyle" formControlName="clinicalFeatures" name="clinicalFeatures" placeholder="Type clinical features"></textarea>
     <hr>
     <label for="workUp">Work Up</label>
-    <textarea formControlName="workUp" name="workUp" placeholder="Type work up"></textarea>
+    <textarea [style.cursor]="cursorStyle" formControlName="workUp" name="workUp" placeholder="Type work up"></textarea>
     <hr>
     <label for="treatment">Treatment</label>
     <textarea [style.cursor]="cursorStyle" formControlName="treatment" name="treatment" placeholder="Type treatment"></textarea>
-    <button class="go" type="submit">Submit</button>
+    <button [style.cursor]="cursorStyle" class="go" type="submit">Submit</button>
+  
+    <!-- [disabled]="!createMode || editMode" [style.cursor]="cursorStyle" -->
   </form>
 </div>
