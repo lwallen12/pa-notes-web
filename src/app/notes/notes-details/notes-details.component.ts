@@ -14,7 +14,8 @@ export class NotesDetailsComponent implements OnInit {
 
   note: Note;
   createMode = false;
-  cursorStyle = {'cursor': 'auto'};
+  // cursorStyle = {'cursor': 'auto'};
+  cursorStyle = 'auto';
 
   constructor(private route: ActivatedRoute,
               private noteService: NotesServiceService,
@@ -26,7 +27,7 @@ export class NotesDetailsComponent implements OnInit {
 
     if (+routeParam)
     {
-      this.cursorStyle = {'cursor': 'pointer'};
+      this.cursorStyle = 'pointer';
       this.onGetNote(routeParam);
     }
     else {
@@ -45,7 +46,7 @@ export class NotesDetailsComponent implements OnInit {
   }
 
   onEdit() {
-    this.cursorStyle = {'cursor': 'auto'};
+    this.cursorStyle = 'auto';
   }
 
   onGetNote(id: number) {
