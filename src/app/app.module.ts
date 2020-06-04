@@ -9,15 +9,17 @@ import { MatTableModule } from '@angular/material'
 import { NotesComponent } from './notes/notes.component';
 import { NotesDetailsComponent } from './notes/notes-details/notes-details.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/filter-pipe';
+import { NotesCreateComponent } from './notes/notes-create/notes-create.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotesComponent,
     NotesDetailsComponent,
-    FilterPipe
+    FilterPipe,
+    NotesCreateComponent
   ],
   imports: [  
     BrowserModule,
@@ -26,7 +28,8 @@ import { FilterPipe } from './pipes/filter-pipe';
     MatSliderModule,
     MatTableModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

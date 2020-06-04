@@ -1,13 +1,30 @@
-<p>
-  notes-details works!
-</p>
-<button>Edit</button><button>Delete</button>
 <div>
-  <p>{{note?.id}}</p>
-  <p>{{note?.category}}</p>
-  <p>{{note?.disease}}</p>
-  <p>{{note?.generalInfo}}</p>
-  <p>{{note?.clinicalFeatures}}</p>
-  <p>{{note?.workUp}}</p>
-  <p>{{note?.treatment}}</p>
+  <a routerLink="/notes">Back to home</a>
+</div>
+<hr>
+<button class="warn">Edit</button><button class="danger" (click)="onDelete()">Delete</button>
+
+<div class="my-container">
+  <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+    <h2>Create Note</h2>
+    <hr>
+    <label for="category">Category</label>
+    <input type="text" name="category" formControlName="category" placeholder="Type category">
+    <hr>
+    <label for="disease">Disease</label>
+    <input type="text" name="disease" formControlName="disease" placeholder="Type disease">
+    <hr>
+    <label for="generalInfo">General Info</label>
+    <textarea formControlName="generalInfo" placeholder="Type general info" name="generalInfo"></textarea>
+    <hr>
+    <label for="clinicalFeatures">Clinical Features</label>
+    <textarea formControlName="clinicalFeatures" name="clinicalFeatures" placeholder="Type clinical features"></textarea>
+    <hr>
+    <label for="workUp">Work Up</label>
+    <textarea formControlName="workUp" name="workUp" placeholder="Type work up"></textarea>
+    <hr>
+    <label for="treatment">Treatment</label>
+  <textarea formControlName="treatment" name="treatment" placeholder="Type treatment"></textarea>
+    <button class="go" type="submit">Submit</button>
+  </form>
 </div>
