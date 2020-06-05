@@ -49,6 +49,6 @@ button {
     margin: 3px;
   }
 
-  a {
+  .button-link {
       color: white;
   }

@@ -8,18 +8,18 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatTableModule } from '@angular/material' 
 import { NotesComponent } from './notes/notes.component';
 import { NotesDetailsComponent } from './notes/notes-details/notes-details.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FilterPipe } from './pipes/filter-pipe';
 import { NotesCreateComponent } from './notes/notes-create/notes-create.component';
+import { FilterPipe } from './notes/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotesComponent,
     NotesDetailsComponent,
-    FilterPipe,
-    NotesCreateComponent
+    NotesCreateComponent,
+    FilterPipe
   ],
   imports: [  
     BrowserModule,

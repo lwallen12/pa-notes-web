@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Note } from '../models/note';
 import { Observable, throwError } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class NotesServiceService {
   responseType:'text' as 'json' };
 
 
-  baseURL = 'https://localhost:44328/api/notes';
+  // baseURL = 'https://localhost:44328/api/notes';
+  baseURL = environment.apiURL + 'notes';
 
   getAllNotes(): Observable<Note[]> {
     return this.http.get<Note[]>(this.baseURL);

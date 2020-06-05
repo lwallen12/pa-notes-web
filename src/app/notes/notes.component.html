@@ -26,7 +26,7 @@
 <input type="text" [(ngModel)]="queryString" id="search" placeholder="Search to type">
 
 <div class="back-off">
-  <a routerLink="create"><button>Create New Note</button></a>
+  <a routerLink="create" class="button-link"><button>Create New Note</button></a>
 </div>
 <table>
   <tr class="headings">
@@ -52,7 +52,7 @@
       <b>Treatment</b>
     </th>
   </tr>
-  <tr (click)="onDetail(note)" *ngFor="let note of notes | FilterPipe: queryString">
+  <tr (click)="onDetail(note)" *ngFor="let note of notes | filter:queryString">
     <th>
       <a [routerLink]=[note.id]>{{note.id}}</a>
     </th>
@@ -76,5 +76,3 @@
     </th>
   </tr>
 </table>
-
-<div *ngFor="let i of items">{{i.name}}</div>
